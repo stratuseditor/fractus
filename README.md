@@ -1,4 +1,7 @@
 # Fractus Editor
+
+[![Build Status](https://secure.travis-ci.org/stratuseditor/fractus.png)](http://travis-ci.org/stratuseditor/fractus)
+
 This is the editor component of [Stratus Editor](http://stratuseditor.com/).
 
 # Standalone
