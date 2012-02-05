@@ -1,19 +1,23 @@
 should = require 'should'
+bundle     = require 'stratus-bundle'
+bundleDir  = require.resolve("stratus-bundle").split("/")[0..-2].join("/")
+bundle.dir = "#{bundleDir}/test/cases"
 build  = require '../src/build'
 
+
 buildFractus = ->
-  return build(langs: ["Ruby", "JSON"], theme: "Idlefingers")
+  return build(langs: ["Ruby"], theme: "Idlefingers")
 
 describe "build", ->
   describe "()", ->
     it "sets a default theme", ->
-      build(langs: ["Ruby", "JSON"]).theme.should.eql "Idlefingers"
+      build(langs: ["Ruby"]).theme.should.eql "Idlefingers"
     
     it "includes extended languages", ->
-      build(langs: ["Ruby.Rails.Controller"]).langs.should.include "Ruby"
+      build(langs: ["Ruby.Rails.Model"]).langs.should.include "Ruby"
     
-    it "includes required languages", ->
-      build(langs: ["HTML"]).langs.should.include "CSS"
+    #it "includes required languages", ->
+    #  build(langs: ["HTML"]).langs.should.include "CSS"
   
   
   describe "#js", ->
@@ -25,7 +29,6 @@ describe "build", ->
       
       it "includes the given bundles", ->
         js.should.include "Ruby"
-        js.should.include "JSON"
         js.should.include "sentientwaffle"
       
       it "does not include other bundles", ->
@@ -39,7 +42,7 @@ describe "build", ->
     
     describe "dont include jQuery", ->
       fractus = build
-        langs:  ["Ruby", "JSON"]
+        langs:  ["Ruby"]
         jquery: false
       
       it "excludes jQuery", ->
