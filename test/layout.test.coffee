@@ -6,7 +6,11 @@ bundle = require 'stratus-bundle'
 
 {Layout, MaxTree} = require '../src/layout'
 
+
 color.addScopes bundle("Ruby").syntax
+
+bundleDir  = require.resolve("stratus-bundle").split("/")[0..-2].join("/")
+bundle.dir = "#{bundleDir}/test/cases"
 
 charSize = (c) -> {width: 7, height: 15}
 
