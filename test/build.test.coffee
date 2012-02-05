@@ -1,8 +1,7 @@
-should = require 'should'
+should     = require 'should'
 bundle     = require 'stratus-bundle'
-bundleDir  = require.resolve("stratus-bundle").split("/")[0..-2].join("/")
-bundle.dir = "#{bundleDir}/test/cases"
-build  = require '../src/build'
+bundle.testDir()
+build      = require '../src/build'
 
 
 buildFractus = ->

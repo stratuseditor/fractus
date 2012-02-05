@@ -3,12 +3,9 @@
 should = require 'should'
 color  = require 'stratus-color'
 bundle = require 'stratus-bundle'
+bundle.testDir()
 
 {Layout, MaxTree} = require '../src/layout'
-
-
-bundleDir  = require.resolve("stratus-bundle").split("/")[0..-2].join("/")
-bundle.dir = "#{bundleDir}/test/cases"
 
 color.addScopes bundle("Ruby").syntax
 
