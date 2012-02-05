@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>Fractus Test</title>
+     <link rel="stylesheet" href="../fractus.css"/>
+     <style>
+       html, body, #editor {
+         height: 100%;
+         width: 100%;
+       }
+       /* XXX */
+       #editor { height: 400px; }
+       html, body {
+         margin: 0px;
+         padding: 0px;
+       }
+     </style>
+     
+     <script src="../fractus.js"></script>
+     <script>
+       jQuery(function() {
+         var fractus = require('fractus');
+         fractus($("#editor"),
+           { text: "def hi(x='there')\n  return true\nend"
+           , syntax: window.fractusBundles["Ruby"]
+         });
+       });
+     </script>
+  </head>
+  <body>
+    <div id="editor">
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  </body>
+</html>

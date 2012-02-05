@@ -1,0 +1,52 @@
+{ "name":        "fractus"
+, "version":     "0.0.1"
+, "description": "a browser-based editor"
+, "keywords":    ["stratus", "editor", "browserify"]
+, "homepage":    "https://github.com/stratuseditor/fractus/"
+, "bugs":
+  { "url":  "https://github.com/stratuseditor/fractus/issues"
+  }
+, "author":
+  { "name": "sentientwaffle"
+  , "url":  "http://sentientwaffle.github.com/"
+  }
+
+, "main":       "./src/build"
+, "browserify": "./src/index"
+, "scripts":
+  { "prepublish":  "coffee -o lib -c src"
+  , "test":        "mocha"
+  }
+
+, "bin":
+  { "fractus": "./bin/fractus.js"
+  }
+
+, "repository":
+  { "type": "git"
+  , "url":  "https://github.com/stratuseditor/fractus.git"
+  }
+
+, "dependencies":
+  { "stratus-color":    "*"
+  , "stratus-bundle":   "*"
+  , "stratus-keyboard": "*"
+  , "commander":        "0.x.x"
+  , "stylus":           "0.x.x"
+  , "nib":              "0.x.x"
+  , "browserify":       "1.x.x"
+  , "underscore":       "1.x.x"
+  }
+
+, "devDependencies":
+  { "should":        "0.4.x"
+  , "mocha":         "0.x.x"
+  , "coffee-script": "1.x.x"
+  }
+
+, "engines":
+  { "node": "> 0.4.x < 0.7.0"
+  }
+
+, "preferGlobal": true
+}

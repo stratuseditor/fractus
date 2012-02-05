@@ -1,0 +1,127 @@
+@import 'nib'
+
+user-select(stuff)
+  -webkit-user-select stuff
+  -moz-user-select stuff
+  -ms-user-select stuff
+
+// The cursor blinking animation.
+@keyframes blink
+  0%
+    opacity 1.0
+  40%
+    opacity 1.0
+  50%
+    opacity 0.0
+  60%
+    opacity 1.0
+  100%
+    opacity 1.0
+
+// The editor font size.
+size = 15px
+
+// The main container.
+.fractus
+  font-family Inconsolata, monospace
+  font-size size
+  position relative
+  white-space pre
+  //word-wrap normal
+  
+  > textarea
+    fixed top -50% left -50%
+    height 1px
+    width 1px
+
+// The cursor. It's height is calculated with JavaScript.
+.fractus-cursor
+  cursor text
+  position absolute
+  user-select none
+  -webkit-animation blink 1s infinite
+  width 1px
+  z-index 2
+
+.fractus-selection
+  cursor text
+  position absolute
+  user-select none
+  &::after
+    content ' '
+
+// The container for the visible lines.
+.fractus-lines
+  absolute top 0px right 10px
+  cursor text
+  height 100%
+  left 0px // initial left value -- this will get updated to the gutter width
+  list-style none
+  overflow hidden
+  margin 0px
+  padding 0px
+  user-select none
+  
+  // Ensure that empty lines are still visible.
+  > li::after
+    content ' '
+
+
+// This container is as tall as the document, regardless of how many
+// of the lines are actually visible. This way, a scrollbar is created.
+.fractus-scroller-y
+  position absolute
+  width 1px
+  visibility hidden
+
+.fractus-scroller-x
+  position absolute
+  height 1px
+  visibility hidden
+  width 10000px
+
+// This is a thin sidebar to the left of the editor view. It contains the
+// line numbers.
+.fractus-gutter
+  absolute top 0px left 0px
+  cursor default
+  height 100%
+  overflow hidden
+  text-align right
+  user-select none
+  > span
+    display block
+    font-size size - 4px
+    padding-right 2px
+    &::before
+      content ' '
+      font-size size
+
+
+.fractus-scrollview
+  absolute top 0px left 0px
+  background transparent
+  bottom 0px
+  overflow auto
+  right 0px
+  //visibility hidden
+  
+  /*.fractus-scrollbar-y
+    height 100%
+    overflow auto
+    position relative
+    width 100%
+    visibility visible*/
+  
+  //> div
+  //  background #ccc
+  //  height 10px
+  //  position absolute
+  //  width 10px
+
+
+
+// Highlighted result regions.
+.hi-search, .hi-search-current, .hi-emphasize
+  cursor text
+  position absolute
